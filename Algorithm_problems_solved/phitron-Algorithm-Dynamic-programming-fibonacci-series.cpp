@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int arr[102];
+long long int arr[102];
 
 long long int fib(int n){
     if(n <= 2){
