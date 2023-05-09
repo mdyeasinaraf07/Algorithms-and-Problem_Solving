@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int n, k;
 int height[101];
 int dp[101];
 int INF = 2e9;
-int n, k;
 
 int stone(int n){
     if(n == 1){
@@ -15,6 +15,9 @@ int stone(int n){
     }
     int ans = INF;
     for(int i = 1; i <= k; i++){
+        if(n - i <= 0){
+            break;
+        }
         int candidate_ans = stone(n - i) + abs(height[n] - height[n - i]);
         ans = min(ans, candidate_ans);
     }
@@ -22,10 +25,7 @@ int stone(int n){
     return ans;
 }
 
-
-
 int main(){
-
     cin>> n >> k;
     for(int i = 1; i <= n; i++){
         cin>> height[i];
@@ -33,8 +33,7 @@ int main(){
     for(int i = 1; i <= n; i++){
         dp[i] = -1;
     }
-    stone(n);
+    cout<< stone(n)<< endl;
 
     return 0;
 }
-
